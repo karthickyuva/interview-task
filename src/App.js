@@ -24,7 +24,8 @@ class App extends Component {
 
 								      <FormGroup>
 									      <Label for="pollOptions">Options</Label>
-									      <Input type="options" name="pollOptions" id="pollOptions" placeholder="Select">
+									      <Input type="select" name="pollOptions" id="pollOptions" placeholder="Select">
+										      <option>Select</option>
 										      <option>1</option>
 										      <option>2</option>
 										      <option>3</option>

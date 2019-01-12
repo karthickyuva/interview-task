@@ -7,7 +7,7 @@ class CreatePoll extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			votingPolls: localStorage.getItem("votingPolls") ? JSON.parse(localStorage.getItem("votingPolls")) : []
+			votingPolls: localStorage.getItem("votingPolls") ? JSON.parse(localStorage.getItem("votingPolls")) : {}
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,6 +25,17 @@ class CreatePoll extends Component {
 		    votingPolls
 	    }, () => localStorage.setItem("votingPolls", JSON.stringify(votingPolls)));
     }
+
+	removeItem(id){
+		const votingPolls = localStorage.getItem("votingPolls") ? JSON.parse(localStorage.getItem("votingPolls")) : [];
+
+		votingPolls.filter(function(item) {
+			console.log(item);
+			console.log(item[0] === id);
+			return item[0] === id
+		});
+		localStorage.setItem("votingPolls", JSON.stringify(votingPolls));
+	}
 
     render() {
 	  const votingPolls = this.state.votingPolls;
@@ -82,11 +93,11 @@ class CreatePoll extends Component {
 									  </td>
 									  <td>
 										  <Link to={`/poll/${key + 1}`}>
-											  <Badge glyph="align-left">View</Badge>
+											  <Button glyph="align-left">View</Button>
 										  </Link>
 									  </td>
 									  <td>
-										  <Badge glyph="align-left">Delete</Badge>
+										  <Button onClick={this.removeItem.bind(this, key)} glyph="align-left">Delete</Button>
 									  </td>
 								  </tr>)}
 								  </tbody>

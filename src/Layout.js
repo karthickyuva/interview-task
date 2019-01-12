@@ -16,7 +16,7 @@ class App extends Component {
 			  </Row>
 			    <Router>
 				    <div>
-					    <Route exact path="/poll" component={CreatePoll} />
+					    <Route exact path="/" component={CreatePoll} />
 					    <Route path="/poll/:id" component={PollDetails} />
 				    </div>
 			    </Router>

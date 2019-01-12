@@ -27,7 +27,6 @@ class CreatePoll extends Component {
     }
 
     render() {
-	  let listItems = [];
 	  const votingPolls = this.state.votingPolls;
 
 	  return (
@@ -65,7 +64,6 @@ class CreatePoll extends Component {
 				  <Card className="p-2">
 					  <CardBody className="text-left">
 						  <h3>Polls List:</h3>
-						  <ul>{console.log(listItems)}</ul>
 						  <Col sm={{size: 8}}>
 							  <Table>
 								  <thead>

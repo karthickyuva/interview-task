@@ -92,11 +92,11 @@ class CreatePoll extends Component {
 										</td>
 										<td>
 											<Link to={`/poll/${key + 1}`}>
-												<Button glyph="align-left">View</Button>
+												<Button color="info" size="sm"><i className="fas fa-eye"/> View</Button>
 											</Link>
 										</td>
 										<td>
-											<Button onClick={this.removeItem.bind(this, key)} glyph="align-left">Delete</Button>
+											<Button color="danger" size="sm" onClick={this.removeItem.bind(this, key)}><i className="fas fa-trash-alt" /> Delete</Button>
 										</td>
 									</tr>)}
 									</tbody>

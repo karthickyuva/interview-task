@@ -22,7 +22,7 @@ class CreatePoll extends Component {
 		const votingPolls = localStorage.getItem("votingPolls") ? JSON.parse(localStorage.getItem("votingPolls")) : [];
 		votingPolls.push({
 			pollTitle: this.state.pollTitle,
-			pollOptions: this.state.pollOptions
+			customParty: this.state.customParty
 		});
 		this.setState({
 			votingPolls
@@ -44,26 +44,22 @@ class CreatePoll extends Component {
 
 		return (
 			<Row>
-				<Col sm={{size: 8, order: 2, offset: 1}}>
+				<Col sm={{size: 8, order: 2, offset: 2}}>
 					<Card className="p-2">
 						<CardBody className="text-left">
-							<h3>Make a new POLL:</h3>
-							<Col sm={{size: 8}}>
+							<h3 className="mb-3">Make a new POLL:</h3>
+							<Col sm={{size: 12}}>
 								<Form onSubmit={this.handleSubmit} ref="form">
-									<FormGroup>
-										<Label for="pollTitle">Title:</Label>
-										<Input type="text" name="pollTitle" id="pollTitle"
-										       onChange={this.handleChange} placeholder="Poll title"/>
+									<FormGroup className="mb-0">
+										<Label for="pollTitle">Title<span className="required">*</span></Label>
+										<Input required type="text" name="pollTitle" id="pollTitle"
+										       onChange={this.handleChange} placeholder="Poll Title"/>
 									</FormGroup>
 									​
 									<FormGroup>
-										<Label for="pollOptions">Options</Label>
-										<Input type="select" name="pollOptions" id="pollOptions"
-										       onChange={this.handleChange} placeholder="Select">
-											<option>Congress</option>
-											<option>BJP</option>
-											<option>Indian National Congress</option>
-											<option>Nota</option>
+										<Label for="customParty">Options</Label>
+										<Input type="text" name="customParty" id="customParty"
+										       onChange={this.handleChange} placeholder="Create Optional Party">
 										</Input>
 									</FormGroup>
 									<Button type="submit" color="primary">Create</Button>
@@ -73,11 +69,11 @@ class CreatePoll extends Component {
 					</Card>
 				</Col>
 				​
-				<Col className="mt-3" sm={{size: 8, order: 2, offset: 1}}>
+				<Col className="mt-3" sm={{size: 8, order: 2, offset: 2}}>
 					<Card className="p-2">
 						<CardBody className="text-left">
-							<h3>Polls List:</h3>
-							<Col sm={{size: 8}}>
+							<h3 className="mb-3">Polls List:</h3>
+							<Col sm={{size: 12}}>
 								<Table>
 									<thead>
 									<tr>

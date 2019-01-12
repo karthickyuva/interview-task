@@ -24,29 +24,38 @@ class PollDetails extends Component {
 
 	  return (
 		  <Row>
-			  <Col sm={{size: 8, order: 2, offset: 1}}>
+			  <Col sm={{size: 8, order: 2, offset: 2}}>
 				  <Card className="p-2">
 					  <CardBody className="text-left">
-						  {votingPolls.map((votingPoll, key) =>
-						  parseInt(params.id) === key + 1 ?
-							  <h3>{votingPoll.pollTitle}</h3> : ""
-						  )}
-						  <Col sm={{size: 8}}>
-							  <p>I would like to Vote for:</p>
-							  <Form onSubmit={this.handleSubmit} ref="form">
-								  <FormGroup>
-									  <Input type="select" name="pollOptions" id="pollOptions"
-									         onChange={this.handleChange} placeholder="Select Party">
-										  <option>Select Party</option>
-										  <option>Congress</option>
-										  <option>BJP</option>
-										  <option>Indian National Congress</option>
-										  <option>Nota</option>
-									  </Input>
-								  </FormGroup>
-								  <Button type="submit" color="primary">Submit</Button>
-							  </Form>
-						  </Col>
+						  <Row>
+							  <Col>
+								  {votingPolls.map((votingPoll, key) =>
+									  parseInt(params.id) === key + 1 ?
+										  <h3 className="mb-3">{votingPoll.pollTitle}</h3> : ""
+								  )}
+							  </Col>
+						  </Row>
+						  <Row>
+							  <Col sm={{size: 6}}>
+								  <h6>I would like to Vote for:</h6>
+								  <Form onSubmit={this.handleSubmit} ref="form">
+									  <FormGroup>
+										  <Input required type="select" name="pollOptions" id="pollOptions"
+										         onChange={this.handleChange} placeholder="Select Party">
+											  <option value="">Select Party</option>
+											  <option>Congress</option>
+											  <option>BJP</option>
+											  <option>Indian National Congress</option>
+											  <option>NOTA</option>
+										  </Input>
+									  </FormGroup>
+									  <Button type="submit" color="primary">Submit</Button>
+								  </Form>
+							  </Col>
+							  <Col sm={{size: 6}}>
+								  <h6>Voting Percentage</h6>
+							  </Col>
+						  </Row>
 					  </CardBody>
 				  </Card>
 			  </Col>
